@@ -11,11 +11,8 @@
     "leaflet": "^1.6.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-<<<<<<< HEAD
     "react-router-dom": "^5.2.0",
-=======
     "react-leaflet": "^2.7.0",
->>>>>>> feature/details-init
     "react-scripts": "3.4.1"
   },
   "scripts": {

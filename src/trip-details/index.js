@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { Tabs, Tab, Box, Typography } from '@material-ui/core';
+import { Tabs, Tab, Box } from '@material-ui/core';
 import Trip from './trip';
+import Gallery from './gallery';
+import Stops from './stops';
 
 const TabPanel = (props) => {
   const { children, value, index, ...other } = props;
@@ -22,7 +24,8 @@ const TabPanel = (props) => {
   );
 }
 
-const TripDetails = () => {
+const TripDetails = (props) => {
+  const trip = props.location.state.trip;
 
   const [currentTab, setCurrentTab] = useState(0);
 
@@ -46,13 +49,13 @@ const TripDetails = () => {
       </Tabs>
 
       <TabPanel value={currentTab} index={0}>
-        <Trip />
+        <Trip trip={trip} />
       </TabPanel>
       <TabPanel value={currentTab} index={1}>
-        <div>Stops</div>
+        <Stops />
       </TabPanel>
       <TabPanel value={currentTab} index={2}>
-        <div>Gallery</div>
+        <Gallery images={trip.images} />
       </TabPanel>
     </div>
   );

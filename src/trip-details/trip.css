@@ -1,10 +1,18 @@
-.text-content {
+.content {
     padding-left: 20%;
     padding-right: 20%;
 }
 
+.content-header {
+    padding-top: 15px;
+    padding-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
 @media only screen and (max-width: 768px) {
-    .text-content {
-        padding: 0;
+    .content {
+        padding-left: 5%;
+        padding-right: 5%;
     }
 }

@@ -11,3 +11,18 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+#root {
+  display: flex;
+  justify-content: center;
+}
+
+#root > div {
+  width: 30%;
+}
+
+@media only screen and (max-width: 600px) {
+  #root  > div {
+    width: 95%;
+  }
+}

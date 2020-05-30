@@ -10,15 +10,21 @@ const TripList=() => {
     paper: {
       marginTop: theme.spacing(8),
       display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      width: '90%'
+      justifyContent: 'center',
+      width: '100%'
     },
+    cards: {
+      display: 'flex',
+      width: '90%',
+      flexDirection: 'column'
+    }
   }));
   const classes = useStyles();
   return (
     <div className={classes.paper}>
-      {trips.map(trip => <Trip trip={trip} key={trip.name}></Trip>)}
+      <div className={classes.cards}>
+        {trips.map(trip => <Trip trip={trip} key={trip.name}></Trip>)}
+      </div>
     </div>
   );
 }

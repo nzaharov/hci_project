@@ -12,7 +12,13 @@ import Typography from '@material-ui/core/Typography';
 const useStyles = makeStyles({
   root: {
     width: '100%',
-    marginTop: '10px'
+    marginTop: '10px',
+    display: 'flex',
+    justifyContent: 'center'
+  },
+  cardContainer: {
+    display: 'flex',
+    flexDirection: 'column'
   },
 
   heartButton: {

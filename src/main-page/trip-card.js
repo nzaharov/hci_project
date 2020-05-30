@@ -34,9 +34,9 @@ export default function ImgMediaCard(props) {
       <CardActionArea>
         <CardMedia
           component="img"
-          alt="Contemplative Reptile"
+          alt="Trip thumnail"
           height="140"
-          image="/public/logo192.png"
+          image={`/images/${trip.thumbnail}`}
           title="Contemplative Reptile"
         />
         <CardContent>
@@ -51,7 +51,7 @@ export default function ImgMediaCard(props) {
       </CardActionArea>
       <CardActions>
         <Button size="small">
-          <FavoriteIcon htmlColor='#eb34db' />
+          <FavoriteIcon htmlColor='#eb34db' /> {trip.likes}
         </Button>
         <Button size="small" color="primary">
           Learn More

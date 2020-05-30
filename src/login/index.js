@@ -42,7 +42,7 @@ const Login = () => {
 
   const submit = event => {
     event.preventDefault();
-    if(username=== 'admin' && password === 'admin') {
+    if (username === 'admin' && password === 'admin') {
       history.push('/');
     } else {
       setErrorMessage('Wrong username or password');
@@ -51,24 +51,25 @@ const Login = () => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <div className={classes.paper}>
-      <Typography component="h1" variant="h5">
+      <div id="login">
+        <div className={classes.paper}>
+          <Typography component="h1" variant="h5">
             Sign in
         </Typography>
-        <form className={classes.form} onSubmit={submit}>
-          <TextField 
-          variant="outlined"
-          margin="normal"
-          required
-          fullWidth
-          id="email"
-          label="Username"
-          value={username}
-          onChange={event => setUsername(event.target.value)}
-          name="username"
-          autoComplete="username"
-          autoFocus />
-          <TextField
+          <form className={classes.form} onSubmit={submit}>
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              id="email"
+              label="Username"
+              value={username}
+              onChange={event => setUsername(event.target.value)}
+              name="username"
+              autoComplete="username"
+              autoFocus />
+            <TextField
               variant="outlined"
               margin="normal"
               required
@@ -80,17 +81,17 @@ const Login = () => {
               id="password"
               onChange={event => setPassword(event.target.value)}
             />
-          <Button type="submit" fullWidth variant="contained" className={classes.submit}>
-            Login
+            <Button type="submit" fullWidth variant="contained" className={classes.submit}>
+              Login
           </Button>
-        </form>
+          </form>
 
-        {errorMessage ? <p className={classes.error}>{errorMessage}</p>: ''}
-        
+          {errorMessage ? <p className={classes.error}>{errorMessage}</p> : ''}
+
+        </div>
       </div>
-        
     </ThemeProvider>
   );
 }
- 
+
 export default Login;

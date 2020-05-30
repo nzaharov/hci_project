@@ -11,7 +11,7 @@ function App() {
   return (
     <BrowserRouter>
     <ThemeProvider theme={theme}>
-      <Route exact path='/login' component={Login}/>
+      <Route exact path='/auth/login' component={Login}/>
       <Route exact path='/' component={MainPage} />
       <Route exact path='/trip' component={TripDetails} />
     </ThemeProvider>

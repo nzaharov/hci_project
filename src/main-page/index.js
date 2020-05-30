@@ -11,7 +11,8 @@ const TripList=() => {
       marginTop: theme.spacing(8),
       display: 'flex',
       justifyContent: 'center',
-      width: '100%'
+      width: '100%',
+      marginBottom: '20px'
     },
     cards: {
       display: 'flex',

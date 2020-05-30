@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
@@ -13,10 +13,12 @@ import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
   root: {
+    maxHeight: '380px',
     width: '100%',
     marginTop: '10px',
     display: 'flex',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    flexDirection: 'column'
   },
   cardContainer: {
     display: 'flex',
@@ -25,6 +27,12 @@ const useStyles = makeStyles({
 
   heartButton: {
     color: '#da42f5',
+  },
+
+  description: {
+    overflowWrap: 'break-word',
+    height: '2.7rem',
+    overflowY: 'hidden'
   }
 });
 
@@ -51,7 +59,7 @@ export default function ImgMediaCard(props) {
         <CardMedia
           component="img"
           alt="Trip thumnail"
-          height="140"
+          height="140px"
           image={`/images/${trip.thumbnail}`}
           title="Contemplative Reptile"
         />
@@ -60,7 +68,7 @@ export default function ImgMediaCard(props) {
             {trip.name}
           </Typography>
           <Typography gutterBottom variant="h6" component="h4">by {trip.author}</Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
+          <Typography variant="body2" color="textSecondary" component="p" className={classes.description}>
             {trip.description}
           </Typography>
         </CardContent>

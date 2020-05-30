@@ -20,7 +20,7 @@ export default [
     Sed dictum consectetur metus in scelerisque. Sed vitae enim condimentum, cursus neque ac, malesuada odio. Nulla facilisi. Integer quis dignissim ex. Vivamus lacus mauris, hendrerit nec mi sed, tempus finibus turpis. Sed dui mi, elementum nec lobortis ut, pharetra sed ante. Donec et congue orci. Morbi non pulvinar neque. Pellentesque elementum gravida diam sit amet pharetra. Sed ut viverra ligula. Duis mollis nibh lacus. Duis vel enim molestie tellus consequat sollicitudin ut a turpis. Sed id erat nec lacus porta commodo nec vitae lectus. Mauris et erat varius, vehicula nunc id, gravida eros. Maecenas tincidunt mollis enim, nec pretium magna bibendum nec.`,
     author: 'Nikolay Zaharov',
     thumbnail: '1.jpg',
-    loked: true,
+    liked: true,
     likes: 24,
     stops: [
       { title: 'First', coordinates: [42, 23] },

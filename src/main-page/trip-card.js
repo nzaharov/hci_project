@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
@@ -29,20 +30,24 @@ const useStyles = makeStyles({
 
 export default function ImgMediaCard(props) {
   const classes = useStyles();
-  const {trip} = props;
+  const { trip } = props;
   const [liked, setLiked] = useState(trip.liked);
+  const history = useHistory();
 
   const setLikedExtension = () => {
-    if(!liked) { 
+    if (!liked) {
       trip.likes++
     } else {
-      trip.likes --;
-    };
+      trip.likes--;
+    }
     setLiked(!liked);
   }
+
+  const reroute = () => history.push({pathname: 'trip', state:{ trip }});
+
   return (
     <Card className={classes.root}>
-      <CardActionArea>
+      <CardActionArea onClick={reroute}>
         <CardMedia
           component="img"
           alt="Trip thumnail"
@@ -54,7 +59,7 @@ export default function ImgMediaCard(props) {
           <Typography gutterBottom variant="h5" component="h2">
             {trip.name}
           </Typography>
-  <Typography gutterBottom variant="h6" component="h4">by {trip.author}</Typography>
+          <Typography gutterBottom variant="h6" component="h4">by {trip.author}</Typography>
           <Typography variant="body2" color="textSecondary" component="p">
             {trip.description}
           </Typography>
@@ -62,10 +67,7 @@ export default function ImgMediaCard(props) {
       </CardActionArea>
       <CardActions>
         <Button size="small" onClick={setLikedExtension}>
-          {liked ? (<FavoriteIcon htmlColor='#eb34db' />) : (<FavoriteBorderIcon htmlColor="#eb34db"></FavoriteBorderIcon>)} {trip.likes} 
-        </Button>
-        <Button size="small" color="primary">
-          Learn More
+          {liked ? (<FavoriteIcon htmlColor='#eb34db' />) : (<FavoriteBorderIcon htmlColor="#eb34db"></FavoriteBorderIcon>)} {trip.likes}
         </Button>
       </CardActions>
     </Card>

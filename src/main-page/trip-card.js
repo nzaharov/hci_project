@@ -60,7 +60,7 @@ export default function ImgMediaCard(props) {
           component="img"
           alt="Trip thumnail"
           height="140px"
-          image={`/images/${trip.thumbnail}`}
+          image={`${process.env.PUBLIC_URL}/images/${trip.thumbnail}`}
           title="Contemplative Reptile"
         />
         <CardContent>

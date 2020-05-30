@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import FavoriteIcon from '@material-ui/icons/Favorite';
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
@@ -29,6 +30,16 @@ const useStyles = makeStyles({
 export default function ImgMediaCard(props) {
   const classes = useStyles();
   const {trip} = props;
+  const [liked, setLiked] = useState(trip.liked);
+
+  const setLikedExtension = () => {
+    if(!liked) { 
+      trip.likes++
+    } else {
+      trip.likes --;
+    };
+    setLiked(!liked);
+  }
   return (
     <Card className={classes.root}>
       <CardActionArea>
@@ -50,8 +61,8 @@ export default function ImgMediaCard(props) {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small">
-          <FavoriteIcon htmlColor='#eb34db' /> {trip.likes}
+        <Button size="small" onClick={setLikedExtension}>
+          {liked ? (<FavoriteIcon htmlColor='#eb34db' />) : (<FavoriteBorderIcon htmlColor="#eb34db"></FavoriteBorderIcon>)} {trip.likes} 
         </Button>
         <Button size="small" color="primary">
           Learn More

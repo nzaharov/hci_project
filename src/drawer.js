@@ -78,7 +78,7 @@ function ResponsiveDrawer(props) {
     <div>
       <div className={classes.toolbar} />
       <div className={classes.avatarPlaceholder}>
-        <Avatar src='/images/avatar.png'/> <span className={classes.name}>Admin Adminov </span>
+        <Avatar src={`${process.env.PUBLIC_URL}/images/avatar.png`}/> <span className={classes.name}>Admin Adminov </span>
       </div>
       <Divider />
       <List>

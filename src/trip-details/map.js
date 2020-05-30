@@ -16,17 +16,22 @@ Leaflet.Icon.Default.mergeOptions({
 });
 
 const LeafletMap = (props) => {
-  const position = props.position;
+  const markers = props.markers;
 
   return (
-    <Map center={position} zoom={13} style={{ height: '400px' }}>
+    <Map center={markers[0].coordinates} zoom={13} style={{ height: '500px' }}>
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
       />
-      <Marker position={position}>
-        <Popup>A pretty CSS3 popup.<br />Easily customizable.</Popup>
-      </Marker>
+
+      {
+        markers.map((marker) => (
+          <Marker position={marker.coordinates}>
+            <Popup>{marker.title}</Popup>
+          </Marker>
+        ))
+      }
     </Map>
   );
 }

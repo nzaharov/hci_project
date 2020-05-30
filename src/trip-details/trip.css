@@ -1,0 +1,10 @@
+.text-content {
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+@media only screen and (max-width: 768px) {
+    .text-content {
+        padding: 0;
+    }
+}

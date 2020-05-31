@@ -14,7 +14,7 @@
 #empty-gallery {
     text-align: center;
     padding-top: 15vh;
-    opacity: 60%;
+    color: #939393;
 }
 
 @media only screen and (max-width: 768px) {

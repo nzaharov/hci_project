@@ -43,7 +43,7 @@ const Login = () => {
   const submit = event => {
     event.preventDefault();
     if (username === 'admin' && password === 'admin') {
-      history.push('/');
+      history.push('/main');
     } else {
       setErrorMessage('Wrong username or password');
     }

@@ -1,6 +1,7 @@
 .content {
     padding-left: 20%;
     padding-right: 20%;
+    padding-bottom: 10vh;
 }
 
 .content-header {
@@ -8,6 +9,12 @@
     padding-bottom: 30px;
     display: flex;
     justify-content: space-between;
+}
+
+#empty-gallery {
+    text-align: center;
+    padding-top: 15vh;
+    opacity: 60%;
 }
 
 @media only screen and (max-width: 768px) {

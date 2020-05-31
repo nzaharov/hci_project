@@ -13,7 +13,7 @@ const Gallery = (props) => {
             </GridListTile>
           ))}
         </GridList>
-        : <div id='empty'>
+        : <div id='empty-gallery'>
           No images available...
           </div>}
     </>

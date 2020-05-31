@@ -5,10 +5,10 @@ import React from 'react';
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: '#81c784',
+      main: '#009688',
     },
     secondary: {
-      main: '#212121',
+      main: '#02c76e',
     },
     error: red,
   },

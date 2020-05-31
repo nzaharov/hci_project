@@ -5,9 +5,13 @@ import trips from './trips';
 import { ThemeContext } from '../theme-context';
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
+import Drawer from '../drawer';
+import { useHistory } from 'react-router-dom';
 
-const TripList=() => {
+const TripList = () => {
   const theme = useContext(ThemeContext);
+  const history = useHistory();
+
   const useStyles = makeStyles(() => ({
     paper: {
       marginTop: theme.spacing(8),
@@ -22,20 +26,31 @@ const TripList=() => {
       height: '90%',
       overflowY: 'auto',
       flexDirection: 'column'
+    },
+    fab: {
+      position: 'fixed',
+      zIndex: 1010,
+      bottom: '3%',
+      right: '5%',
     }
   }));
   const classes = useStyles();
-  return (<>
-    <div className={classes.paper}>
-      <div className={classes.cards}>
-        {trips.map(trip => <Trip trip={trip} key={trip.name}></Trip>)}
-      </div>
-    </div>
-    <Fab color="primary" aria-label="add" styles={{position: 'fixed', zIndex: 1010,
-    bottom: '16px',
-    left: '16px',}}>
-      <AddIcon />
-    </Fab>
+  return (
+    <>
+      <Drawer>
+        <div className={classes.paper}>
+          <div className={classes.cards}>
+            {trips.map(trip => <Trip trip={trip} key={trip.name}></Trip>)}
+          </div>
+        </div>
+        <Fab
+          color="secondary"
+          aria-label="add"
+          className={classes.fab}
+          onClick={() => history.push('create-trip')}>
+          <AddIcon />
+        </Fab>
+      </Drawer>
     </>
   );
 }

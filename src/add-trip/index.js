@@ -2,7 +2,8 @@ import React, { useState, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import { makeStyles, ThemeProvider, CssBaseline, TextField, Button, Typography } from '@material-ui/core';
 import { ThemeContext } from '../theme-context';
-import trips from '../main-page/trips'
+import trips from '../main-page/trips';
+import BackButton from '../common/back-button';
 
 const UpsertTrip = () => {
   const [name, setName] = useState('');
@@ -121,6 +122,7 @@ const UpsertTrip = () => {
 
         </div>
       </div>
+      <BackButton />
     </ThemeProvider>
   );
 }

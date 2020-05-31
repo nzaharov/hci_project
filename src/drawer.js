@@ -28,15 +28,14 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up('sm')]: {
       width: drawerWidth,
       flexShrink: 0,
-    },
+    }
   },
   appBar: {
     [theme.breakpoints.up('sm')]: {
       width: `calc(100% - ${drawerWidth}px)`,
       marginLeft: drawerWidth,
-    },
+    }
   },
-
   avatarPlaceholder: {
     display: 'flex',
     paddingLeft: '10px',
@@ -48,8 +47,7 @@ const useStyles = makeStyles((theme) => ({
       display: 'none',
     },
   },
-
-  name:{
+  name: {
     paddingTop: '10px',
     paddingLeft: '2px'
   },
@@ -78,7 +76,7 @@ function ResponsiveDrawer(props) {
     <div>
       <div className={classes.toolbar} />
       <div className={classes.avatarPlaceholder}>
-        <Avatar src={`${process.env.PUBLIC_URL}/images/avatar.png`}/> <span className={classes.name}>Admin Adminov </span>
+        <Avatar src={`${process.env.PUBLIC_URL}/images/avatar.png`} /> <span className={classes.name}>Admin Adminov </span>
       </div>
       <Divider />
       <List>

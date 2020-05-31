@@ -3,6 +3,7 @@ import { Tabs, Tab, Box } from '@material-ui/core';
 import Trip from './trip';
 import Gallery from './gallery';
 import Stops from './stops';
+import BackButton from '../common/back-button';
 
 const TabPanel = (props) => {
   const { children, value, index, ...other } = props;
@@ -57,6 +58,7 @@ const TripDetails = (props) => {
       <TabPanel value={currentTab} index={2}>
         <Gallery images={trip.images} />
       </TabPanel>
+      <BackButton />
     </div>
   );
 }

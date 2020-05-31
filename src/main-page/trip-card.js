@@ -24,11 +24,13 @@ const useStyles = makeStyles({
     display: 'flex',
     flexDirection: 'column'
   },
-
   heartButton: {
     color: '#da42f5',
   },
-
+  likeCount: {
+    marginLeft: '5px',
+    opacity: '70%'
+  },
   description: {
     overflowWrap: 'break-word',
     height: '2.7rem',
@@ -51,7 +53,7 @@ export default function ImgMediaCard(props) {
     setLiked(!liked);
   }
 
-  const reroute = () => history.push({pathname: 'trip', state:{ trip }});
+  const reroute = () => history.push({ pathname: 'trip', state: { trip } });
 
   return (
     <Card className={classes.root}>
@@ -75,7 +77,10 @@ export default function ImgMediaCard(props) {
       </CardActionArea>
       <CardActions>
         <Button size="small" onClick={setLikedExtension}>
-          {liked ? (<FavoriteIcon htmlColor='#eb34db' />) : (<FavoriteBorderIcon htmlColor="#eb34db"></FavoriteBorderIcon>)} {trip.likes}
+          {liked
+            ? <FavoriteIcon htmlColor='#ff524c' />
+            : <FavoriteBorderIcon htmlColor="#ff524c" />}
+          <span className={classes.likeCount}>{trip.likes}</span>
         </Button>
       </CardActions>
     </Card>

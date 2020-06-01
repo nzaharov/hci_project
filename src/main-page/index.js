@@ -5,7 +5,7 @@ import trips from './trips';
 import { ThemeContext } from '../theme-context';
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
-import Drawer from '../drawer';
+import Drawer from '../common/drawer';
 import { useHistory } from 'react-router-dom';
 
 const TripList = () => {

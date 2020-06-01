@@ -1,130 +1,113 @@
-import React, { useState, useContext } from 'react';
-import { useHistory } from 'react-router-dom';
-import { makeStyles, ThemeProvider, CssBaseline, TextField, Button, Typography } from '@material-ui/core';
-import { ThemeContext } from '../theme-context';
-import trips from '../main-page/trips';
-import BackButton from '../common/back-button';
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Stepper from '@material-ui/core/Stepper';
+import Step from '@material-ui/core/Step';
+import StepLabel from '@material-ui/core/StepLabel';
+import StepContent from '@material-ui/core/StepContent';
+import Button from '@material-ui/core/Button';
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
+import Drawer from '../common/drawer';
+import TripSummary from './trip-summary';
+import AddStops from './add-stops';
 
-const UpsertTrip = () => {
-  const [name, setName] = useState('');
-  const [description, setDescription] = useState('');
-  const [pictures, setPictures] = useState([]);
-  const [errorMessage, setErrorMessage] = useState('');
-  const history = useHistory();
-  const theme = useContext(ThemeContext);
+const useStyles = makeStyles((theme) => ({
+  root: {
+    width: '100%',
+    marginTop: '50px'
+  },
+  button: {
+    marginTop: theme.spacing(1),
+    marginRight: theme.spacing(1),
+  },
+  actionsContainer: {
+    marginBottom: theme.spacing(2),
+  },
+  resetContainer: {
+    padding: theme.spacing(3),
+  },
+}));
 
-  const useStyles = makeStyles(() => ({
-    paper: {
-      marginTop: theme.spacing(8),
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      width: '90%'
-    },
-    form: {
-      width: '100%',
-      marginTop: theme.spacing(1),
-    },
-    submit: {
-      margin: theme.spacing(3, 0, 2),
-    },
-    footer: {
-      display: 'flex',
-      flexDirection: 'column',
-      alignContent: 'center',
-    },
-    input: {
-      display: 'none',
-      padding: 12,
-    },
+function getSteps() {
+  return ['Trip Summary', 'Add Stops', 'Review & Publish'];
+}
 
-    error: {
-      textAlign: "center",
-      color: 'red',
-      fontSize: '1.3rem'
-    }
-  }));
+function getStepContent(step) {
+  switch (step) {
+    case 0:
+      return <TripSummary />;
+    case 1:
+      return <AddStops />;
+    case 2:
+      return `Try out different ad text to see what brings in the most customers,
+              and learn how to enhance your ads using features like ad extensions.
+              If you run into any problems with your ads, find out how to tell if
+              they're running and how to resolve approval issues.`;
+    default:
+      return 'Unknown step';
+  }
+}
 
+const CreateTrip = () => {
   const classes = useStyles();
+  const [activeStep, setActiveStep] = React.useState(0);
+  const steps = getSteps();
 
-  const submit = event => {
-    event.preventDefault();
-    trips.push({name, author:'Admin Adminov', stops:[], description, isLiked: false, likes: 0});
-    history.push('/');
-  }
+  const handleNext = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+  };
 
-  const upload = e => {
-    setPictures(Array.from(e.target.files));
-  }
-  function encodeImageFileAsURL(element) {
-    var file = pictures.files[0];
-    var reader = new FileReader();
-    reader.onloadend = function() {
-      console.log('RESULT', reader.result)
-    }
-    reader.readAsDataURL(file);
-  }
+  const handleBack = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep - 1);
+  };
+
+  const handleReset = () => {
+    setActiveStep(0);
+  };
 
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <div id="login">
-        <div className={classes.paper}>
-          <Typography component="h1" variant="h5">
-            Add Trip
-        </Typography>
-          <form className={classes.form} onSubmit={submit}>
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              id="name"
-              label="Name"
-              value={name}
-              onChange={event => setName(event.target.value)}
-              name="username"
-              autoComplete="username"
-              autoFocus />
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              value={description}
-              name="description"
-              label="Description"
-              multiline
-              rows="6"
-              id="password"
-              onChange={event => setDescription(event.target.value)}
-            />
-            <input
-            accept="image/*"
-            className={classes.input}
-            id="contained-button-file"
-            multiple
-            type="file"
-            onChange={upload}
-          />
-          <input type="submit" id="upload-button" hidden />
-          <label htmlFor="contained-button-file">
-            <Button size="large" variant="outlined" color="primary" component="span">
-              Choose picture
-            </Button>
-          </label>
-            <Button type="submit" fullWidth variant="contained" className={classes.submit}>
-              Create
+    <Drawer>
+      <div className={classes.root}>
+        <Stepper activeStep={activeStep} orientation="vertical">
+          {steps.map((label, index) => (
+            <Step key={label}>
+              <StepLabel>{label}</StepLabel>
+              <StepContent>
+                <Typography>{getStepContent(index)}</Typography>
+                <div className={classes.actionsContainer}>
+                  <div>
+                    <Button
+                      disabled={activeStep === 0}
+                      onClick={handleBack}
+                      className={classes.button}
+                    >
+                      Back
+                  </Button>
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      onClick={handleNext}
+                      className={classes.button}
+                    >
+                      {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
+                    </Button>
+                  </div>
+                </div>
+              </StepContent>
+            </Step>
+          ))}
+        </Stepper>
+        {activeStep === steps.length && (
+          <Paper square elevation={0} className={classes.resetContainer}>
+            <Typography>All steps completed - you&apos;re finished</Typography>
+            <Button onClick={handleReset} className={classes.button}>
+              Reset
           </Button>
-          </form>
-
-          {errorMessage ? <p className={classes.error}>{errorMessage}</p> : ''}
-
-        </div>
+          </Paper>
+        )}
       </div>
-      <BackButton />
-    </ThemeProvider>
+    </Drawer>
   );
 }
 
-export default UpsertTrip;
+export default CreateTrip;

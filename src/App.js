@@ -5,7 +5,7 @@ import Login from './login/index';
 import TripDetails from './trip-details';
 import { ThemeContext } from './theme-context';
 import MainPage from './main-page';
-import UpsertTrip from './add-trip';
+import CreateTrip from './add-trip';
 
 function App() {
   const theme = useContext(ThemeContext);
@@ -17,7 +17,7 @@ function App() {
         </Route>
         <Route exact path='/auth/login' component={Login} />
         <Route exact path='/main' component={MainPage} />
-        <Route exact path='/create-trip' component={UpsertTrip} />
+        <Route exact path='/create-trip' component={CreateTrip} />
         <Route exact path='/trip' component={TripDetails} />
       </ThemeProvider>
     </BrowserRouter>

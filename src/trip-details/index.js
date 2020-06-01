@@ -53,7 +53,7 @@ const TripDetails = (props) => {
         <Trip trip={trip} />
       </TabPanel>
       <TabPanel value={currentTab} index={1}>
-        <Stops />
+        <Stops stops={trip.stops} />
       </TabPanel>
       <TabPanel value={currentTab} index={2}>
         <Gallery images={trip.images} />

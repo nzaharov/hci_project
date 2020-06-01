@@ -1,6 +1,7 @@
 import React from 'react';
 import GridList from '@material-ui/core/GridList'
 import GridListTile from '@material-ui/core/GridListTile'
+import ModalPicture from '../common/modal-picture';
 
 const Gallery = (props) => {
   return (
@@ -9,7 +10,7 @@ const Gallery = (props) => {
         ? <GridList cols={3}>
           {props.images.map((image, i) => (
             <GridListTile key={i} cols={1}>
-              <img src={process.env.PUBLIC_URL + image} alt='Loading...' />
+              <ModalPicture source={process.env.PUBLIC_URL + image} />
             </GridListTile>
           ))}
         </GridList>

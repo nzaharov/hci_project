@@ -17,6 +17,8 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { Avatar } from '@material-ui/core';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import { useHistory } from 'react-router-dom';
 
 const drawerWidth = 240;
 
@@ -57,15 +59,15 @@ const useStyles = makeStyles((theme) => ({
     width: drawerWidth,
   },
   content: {
-    flexGrow: 1,
-    padding: theme.spacing(3),
+    flexGrow: 1
   },
 }));
 
-function ResponsiveDrawer(props) {
+const ResponsiveDrawer = (props) => {
   const { window, children } = props;
   const classes = useStyles();
   const theme = useTheme();
+  const history = useHistory();
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
   const handleDrawerToggle = () => {
@@ -86,15 +88,13 @@ function ResponsiveDrawer(props) {
             <ListItemText primary={text} />
           </ListItem>
         ))}
-      </List>
-      <Divider />
-      <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
+        <Divider />
+        <ListItem button key={'Sign out'} onClick={() => history.push('/')}>
+          <ListItemIcon>
+            <ExitToAppIcon />
+          </ListItemIcon>
+          <ListItemText primary={'Sign out'} />
+        </ListItem>
       </List>
     </div>
   );
@@ -115,7 +115,7 @@ function ResponsiveDrawer(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap>
+          <Typography variant="h5" noWrap>
             Tripify
           </Typography>
         </Toolbar>

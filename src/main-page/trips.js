@@ -9,8 +9,18 @@ export default [
     liked: false,
     likes: 23,
     stops: [
-      { title: 'First stop', coordinates: [41.5, 23] },
-      { title: 'Second Stop', coordinates: [40, 30] }
+      {
+        title: 'First stop',
+        coordinates: [41.5, 23],
+        image: '2.jpg',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel odio elit. Donec sed tincidunt dolor. Curabitur vel nisl sed erat commodo ullamcorper at non justo. Pellentesque fringilla elit quis mi tincidunt ultrices. In sed velit eleifend nunc eleifend elementum quis ac lorem. Vivamus ut enim a metus mollis interdum. Nullam dignissim erat ac erat tristique laoreet.'
+      },
+      {
+        title: 'Second Stop',
+        coordinates: [40, 30],
+        image: '1.jpg',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel odio elit. Donec sed tincidunt dolor. Curabitur vel nisl sed erat commodo ullamcorper at non justo. Pellentesque fringilla elit quis mi tincidunt ultrices. In sed velit eleifend nunc eleifend elementum quis ac lorem. Vivamus ut enim a metus mollis interdum. Nullam dignissim erat ac erat tristique laoreet.'
+      }
     ]
   },
   {
@@ -23,9 +33,24 @@ export default [
     liked: true,
     likes: 24,
     stops: [
-      { title: 'First', coordinates: [42, 23] },
-      { title: 'Second', coordinates: [42, 24] },
-      { title: 'Third', coordinates: [42, 25] }
+      {
+        title: 'First',
+        coordinates: [42, 23],
+        image: 'pic1.jpg',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel odio elit. Donec sed tincidunt dolor. Curabitur vel nisl sed erat commodo ullamcorper at non justo. Pellentesque fringilla elit quis mi tincidunt ultrices. In sed velit eleifend nunc eleifend elementum quis ac lorem. Vivamus ut enim a metus mollis interdum. Nullam dignissim erat ac erat tristique laoreet.'
+      },
+      {
+        title: 'Second',
+        coordinates: [42, 24],
+        image: 'pic2.jpg',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel odio elit. Donec sed tincidunt dolor. Curabitur vel nisl sed erat commodo ullamcorper at non justo. Pellentesque fringilla elit quis mi tincidunt ultrices. In sed velit eleifend nunc eleifend elementum quis ac lorem. Vivamus ut enim a metus mollis interdum. Nullam dignissim erat ac erat tristique laoreet.'
+      },
+      {
+        title: 'Third',
+        coordinates: [42, 25],
+        image: 'pic3.jpg',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel odio elit. Donec sed tincidunt dolor. Curabitur vel nisl sed erat commodo ullamcorper at non justo. Pellentesque fringilla elit quis mi tincidunt ultrices. In sed velit eleifend nunc eleifend elementum quis ac lorem. Vivamus ut enim a metus mollis interdum. Nullam dignissim erat ac erat tristique laoreet.'
+      }
     ],
     images: [
       '/images/pic1.jpg',

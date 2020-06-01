@@ -81,7 +81,13 @@ const Login = () => {
               id="password"
               onChange={event => setPassword(event.target.value)}
             />
-            <Button type="submit" fullWidth variant="contained" className={classes.submit}>
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              className={classes.submit}
+              color='primary'
+            >
               Login
           </Button>
           </form>
